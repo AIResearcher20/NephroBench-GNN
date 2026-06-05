@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+venv/
+env/
+.venv/
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# System files
+.DS_Store
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# =========================
+# IMPORTANT (DATA FILES)
+# =========================
+# فقط اگر دیتاست رو از صفر با کد می‌سازی فعال کن
+# *.csv
+# *.pkl
+# *.npy

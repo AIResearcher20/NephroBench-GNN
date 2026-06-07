@@ -1,211 +1,207 @@
-🧠 NephroGNN-Benchmark
+# 🧠 NephroBench-GNN
 
-A Comprehensive Benchmark of Graph Neural Networks for Drug-Induced Nephrotoxicity Prediction
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org)
+[![PyTorch Geometric](https://img.shields.io/badge/PyG-2.3+-green.svg)](https://pyg.org)
+[![RDKit](https://img.shields.io/badge/RDKit-2023.09-yellow.svg)](https://rdkit.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Paper](https://img.shields.io/badge/Paper-Elsevier-purple.svg)](https://github.com/yourusername/NephroBench-GNN)
+[![AUC](https://img.shields.io/badge/AUC-0.876-brightgreen.svg)](https://github.com/yourusername/NephroBench-GNN)
 
+**A Comprehensive Benchmark of Graph Neural Networks for Drug-Induced Nephrotoxicity Prediction**
 
 ---
 
-<p align="center">     
+## 📌 Overview
 
-</p>
----
-
-📌 Overview
-
-NephroGNN is a research-grade benchmark framework for evaluating Graph Neural Networks (GCN, GAT, GIN) in the task of drug-induced nephrotoxicity prediction.
+NephroBench is a research-grade benchmark framework for evaluating Graph Neural Networks (GCN, GAT, GIN) in the task of drug-induced nephrotoxicity prediction.
 
 Unlike standard molecular machine learning pipelines, this benchmark focuses on realistic generalization scenarios, including scaffold-based splitting, out-of-distribution evaluation, and domain shift analysis.
 
+---
+
+## 🎯 Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🧬 **Molecular Representation** | 25 atom-level features |
+| 🔀 **Scaffold-Based Split** | Bemis–Murcko framework |
+| 🌐 **OOD Evaluation** | Cross-dataset transfer (Tox21 ↔ ClinTox) |
+| 📉 **Domain Shift** | Tox21 vs ClinTox distribution analysis |
+| 📊 **Data Efficiency** | 10% → 100% training scaling |
+| 🔬 **Feature Ablation** | Electronic, ring, neighbor features |
+| 📈 **Statistical Robustness** | 5 seeds, 95% CI, Wilcoxon test |
+| ❌ **Failure Analysis** | FP/FN characterization |
 
 ---
 
-🎯 Key Features
+## ⚙️ Supported Models
 
-🧬 Graph-based molecular representation (25 atom-level features)
-
-🔀 Scaffold-based train/test splitting (Bemis–Murcko)
-
-🌐 Out-of-distribution (OOD) evaluation across datasets
-
-📉 Domain shift quantification (Tox21 vs ClinTox)
-
-📊 Data efficiency scaling analysis
-
-🔬 Feature ablation studies
-
-📈 Statistical robustness (multi-seed evaluation)
-
-❌ Failure mode taxonomy
-
-
+| Model | Type | Reference |
+|-------|------|-----------|
+| **GCN** | Graph Convolutional Network | Kipf & Welling (2017) |
+| **GAT** | Graph Attention Network | Veličković et al. (2018) |
+| **GIN** | Graph Isomorphism Network | Xu et al. (2019) |
+| **Random Forest** | Classical Baseline | ECFP fingerprints |
 
 ---
 
-⚙️ Supported Models
+## 🧪 Dataset Summary
 
-Graph Convolutional Network (GCN)
-
-Graph Attention Network (GAT)
-
-Graph Isomorphism Network (GIN)
-
-Random Forest baseline (ECFP fingerprints)
-
-
+| Property | Value |
+|----------|-------|
+| Total molecules | **3,207** |
+| Sources | Tox21 + ClinTox |
+| Positive samples | 1,843 (57.5%) |
+| Negative samples | 1,364 (42.5%) |
+| Task | Binary classification (Nephrotoxicity) |
 
 ---
 
-🧪 Dataset Summary
+## 🔀 Evaluation Protocol
 
-Total molecules: 3,207
+### Scaffold-Based Split (Primary Evaluation)
 
-Sources: Tox21 + ClinTox
+| Split | Size |
+|-------|------|
+| Training | 2,015 |
+| Validation | 356 |
+| Test | 836 |
 
-Task: Binary classification (Nephrotoxicity prediction)
+### Out-of-Distribution Evaluation
 
+- Train Tox21 → Test ClinTox
+- Train ClinTox → Test Tox21
 
+### Data Efficiency Experiments
 
----
-
-🔀 Evaluation Protocol
-
-Scaffold-based split (primary evaluation)
-
-OOD cross-dataset testing
-
-Multi-seed statistical validation
-
-Data efficiency experiments (10% → 100%)
-
-
+- 10%, 25%, 50%, 75%, 100% training data
 
 ---
 
-🧠 Model Insight
+## 🧠 Best Model Architecture (GIN)
 
-Best performing model: GIN
+```text
+Input Molecular Graph (25 features)
+        ↓
+    GIN Layer 1 (sum aggregation)
+        ↓
+    GIN Layer 2
+        ↓
+    Global Mean Pooling
+        ↓
+    MLP Classifier (128 → 1)
+        ↓
+    Sigmoid Output
+```
 
-2-layer GIN architecture
+Configuration:
 
-Hidden size: 128
-
-Dropout: 0.7
-
-Global mean pooling
-
-MLP classifier with sigmoid output
-
-
+· 2 GIN layers
+· Hidden dimension: 128
+· Dropout: 0.7
+· Global mean pooling
+· Adam optimizer (lr=0.001)
 
 ---
 
 📊 Main Results (Scaffold Split)
 
-Model	ROC-AUC
-
-Random Forest	0.800
-GCN	0.826
-GAT	0.812
-GIN	0.876
-
-
+Model ROC-AUC Accuracy
+Random Forest 0.800 0.770
+GCN 0.826 0.767
+GAT 0.812 0.751
+GIN 0.876 0.840
 
 ---
 
-📌 Key Figures
+📈 Figures
 
-Architecture → figure_1_architecture.png
-
-ROC Curves → figure_2_roc_curves.png
-
-Data Efficiency → figure_3_data_efficiency.png
-
-Ablation Study → figure_4_ablation.png
-
-Final Comparison → figure_5_final_comparison.png
-
-Statistical Analysis → figure_6_statistical.png
-
-Pipeline → figure_pipeline.png
-
-OOD Performance → figure_ood_comparison.png
-
-Domain Shift → domain_shift.png
-
-Error Taxonomy → figure_error_taxonomy.png
-
-
+Figure Description
+figures/figure_1_architecture.png Figure 1 — GIN model architecture
+figures/figure_2_roc_curves.png Figure 2 — ROC curves comparison
+figures/figure_3_data_efficiency.png Figure 3 — Data efficiency scaling
+figures/figure_4_ablation.png Figure 4 — Feature ablation study
+figures/figure_5_final_comparison.png Figure 5 — Final model comparison
+figures/figure_6_statistical.png Figure 6 — Statistical robustness
+figures/figure_pipeline.png Figure 7 — Overall pipeline
+figures/figure_ood_comparison.png Figure 8 — OOD generalization
+figures/domain_shift.png Figure 9 — Domain shift analysis
+figures/figure_error_taxonomy.png Figure 10 — Failure analysis
 
 ---
 
 🌐 Out-of-Distribution Performance
 
-Performance drops significantly under cross-dataset evaluation:
+Setting ROC-AUC
+In-distribution (Scaffold) 0.876
+OOD average ~0.579
 
-In-distribution (Scaffold): 0.876
+⚠️ Performance drops significantly under cross-dataset evaluation, highlighting strong domain shift effects in molecular learning.
 
-Out-of-distribution: ~0.579
+---
 
+🧪 Domain Shift Analysis
 
-This highlights strong domain shift effects in molecular learning.
-
+Property ClinTox Tox21 Difference
+Molecular Weight 384.7 Da 305.8 Da +20.5%
+LogP 2.8 2.3 +17.9%
+Heavy Atoms 25.1 20.3 +19.1%
+Ring Count 2.4 1.9 +20.8%
 
 ---
 
 ❌ Failure Analysis
 
-False positives → larger molecular weight compounds
+Category Count Percentage Avg MW
+Correct 672 80.4% 303.2 Da
+False Positives 105 12.6% 390.7 Da
+False Negatives 59 7.1% 284.1 Da
 
-False negatives → smaller / simpler molecules
-
-
-Indicates structural bias in learned representations.
-
+Observation: False positives tend to be larger molecules; false negatives tend to be smaller.
 
 ---
 
 📦 Reproducibility
 
-Fixed random seeds (5 runs)
-
-Scaffold-based splitting
-
-Full training pipeline included
-
-Deterministic evaluation setup
-
-Confidence intervals reported
-
-
+· ✅ Fixed random seeds (42, 123, 456, 789, 2024)
+· ✅ Scaffold-based split provided
+· ✅ Full preprocessing pipeline included
+· ✅ Deterministic training settings
+· ✅ 95% confidence intervals reported
+· ✅ Wilcoxon signed-rank test (p = 0.0625)
 
 ---
 
 ⚠️ Limitations
 
-Dataset size is moderate (~3K molecules)
+· Dataset size is moderate (~3K molecules)
+· No 3D molecular conformations
+· Public dataset label noise
+· Limited to 2D graph representations
 
-No 3D molecular conformations
+---
 
-Public dataset label noise
+🧭 Future Work
 
-Limited to 2D graph representations
-
-
+· 3D geometric GNNs (DimeNet++, EGNN)
+· Multi-task toxicity prediction
+· Self-supervised molecular pretraining
+· Uncertainty quantification (Bayesian GNNs)
 
 ---
 
 📜 Citation
 
-@article{NephroGNN2026,
+```bibtex
+@article{NephroBench2026,
   title={A Comprehensive Benchmark of Graph Neural Networks for Drug-Induced Nephrotoxicity Prediction},
-  author={Moafi , Sepideh},
+  author={Moafi, Sepideh},
   year={2026}
 }
 
 
----
+📄 License
 
-🪪 License
-
-MIT License
+MIT License — see LICENSE file for details.
 

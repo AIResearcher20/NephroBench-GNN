@@ -5,155 +5,63 @@ A Comprehensive Benchmark of Graph Neural Networks for Drug-Induced Nephrotoxici
 
 ---
 
-    
+<p align="center">     
+
+</p>
+---
+
+📌 Overview
+
+NephroGNN is a research-grade benchmark framework for evaluating Graph Neural Networks (GCN, GAT, GIN) in the task of drug-induced nephrotoxicity prediction.
+
+Unlike standard molecular machine learning pipelines, this benchmark focuses on realistic generalization scenarios, including scaffold-based splitting, out-of-distribution evaluation, and domain shift analysis.
 
 
 ---
 
-📁 Repository Structure
+🎯 Key Features
 
-NephroGNN-Benchmark/
-├── README.md
-├── figures/
-│   ├── figure_1_architecture.png
-│   ├── figure_2_roc_curves.png
-│   ├── figure_3_data_efficiency.png
-│   ├── figure_4_ablation.png
-│   ├── figure_5_final_comparison.png
-│   ├── figure_6_statistical.png
-│   ├── figure_pipeline.png
-│   ├── figure_ood_comparison.png
-│   ├── domain_shift.png
-│   └── figure_error_taxonomy.png
-├── configs/
-├── data/
-├── models/
-├── training/
-├── evaluation/
-├── utils/
-└── requirements.txt
+🧬 Graph-based molecular representation (25 atom-level features)
 
+🔀 Scaffold-based train/test splitting (Bemis–Murcko)
 
----
+🌐 Out-of-distribution (OOD) evaluation across datasets
 
-🧬 NephroGNN Benchmark Overview
+📉 Domain shift quantification (Tox21 vs ClinTox)
 
-NephroGNN is a systematic benchmarking framework for evaluating Graph Neural Networks on drug-induced nephrotoxicity prediction.
+📊 Data efficiency scaling analysis
 
-Unlike conventional QSAR-based toxicity models, this framework explicitly focuses on:
+🔬 Feature ablation studies
 
-Realistic scaffold-based generalization
+📈 Statistical robustness (multi-seed evaluation)
 
-Cross-dataset out-of-distribution robustness
-
-Chemical domain shift quantification
-
-Data efficiency scaling laws
-
-Feature-level interpretability
-
-Statistical stability across random seeds
-
-Failure mode analysis in molecular space
+❌ Failure mode taxonomy
 
 
 
 ---
 
-🎯 Scientific Motivation
+⚙️ Supported Models
 
-Drug-induced nephrotoxicity is a major cause of:
+Graph Convolutional Network (GCN)
 
-Late-stage drug attrition
+Graph Attention Network (GAT)
 
-Acute kidney injury (AKI)
+Graph Isomorphism Network (GIN)
 
-Clinical trial failure
-
-
-However, existing computational models suffer from:
-
-> ❗ Over-optimistic evaluation due to random splits
-❗ Poor generalization to unseen chemical scaffolds
-❗ Lack of OOD validation protocols
-
-
-
-NephroGNN addresses these limitations through a benchmark-first evaluation paradigm.
-
-
----
-
-⚙️ Model Suite
-
-We evaluate representative architectures across different expressive capacities:
-
-Graph Neural Networks
-
-GCN (Kipf & Welling)
-
-GAT (Velickovic et al.)
-
-GIN (Xu et al.)
-
-
-Classical Baseline
-
-Random Forest (ECFP fingerprints)
+Random Forest baseline (ECFP fingerprints)
 
 
 
 ---
 
-🧬 Molecular Representation
+🧪 Dataset Summary
 
-Each molecule is represented as a graph:
+Total molecules: 3,207
 
-Nodes: Atoms
+Sources: Tox21 + ClinTox
 
-Edges: Chemical bonds
-
-Node features (25-dimensional):
-
-Atomic number
-
-Degree
-
-Formal charge
-
-Hybridization
-
-Aromaticity
-
-Valence
-
-Ring membership (3–8)
-
-Electronic descriptors
-
-Mass-normalized features
-
-
-
-
----
-
-📊 Dataset Card
-
-Sources
-
-Tox21 (nuclear receptor + stress response assays)
-
-ClinTox (clinical toxicity endpoints)
-
-
-Final Dataset Statistics
-
-Property	Value
-
-Total molecules	3,207
-Positive samples	1,843
-Negative samples	1,364
+Task: Binary classification (Nephrotoxicity prediction)
 
 
 
@@ -161,72 +69,37 @@ Negative samples	1,364
 
 🔀 Evaluation Protocol
 
-Scaffold-Based Split (Primary Setting)
+Scaffold-based split (primary evaluation)
 
-Split	Size
+OOD cross-dataset testing
 
-Train	2,015
-Validation	356
-Test	836
+Multi-seed statistical validation
 
-
-> Based on Bemis–Murcko scaffolds
-
+Data efficiency experiments (10% → 100%)
 
 
 
 ---
 
-Out-of-Distribution Evaluation
+🧠 Model Insight
 
-Cross-dataset transfer:
+Best performing model: GIN
 
-Tox21 → ClinTox
+2-layer GIN architecture
 
-ClinTox → Tox21
+Hidden size: 128
 
+Dropout: 0.7
 
+Global mean pooling
 
----
-
-Data Efficiency Evaluation
-
-Training ratios:
-
-10%
-
-25%
-
-50%
-
-75%
-
-100%
+MLP classifier with sigmoid output
 
 
 
 ---
 
-🧠 Model Architecture
-
-Best-performing model: GIN
-
-Input Molecular Graph (25 features)
-        ↓
-GIN Layer 1 (sum aggregation)
-        ↓
-GIN Layer 2
-        ↓
-Global Mean Pooling
-        ↓
-MLP Classifier
-        ↓
-Sigmoid Output
-
-
----
-
-📈 Main Results (Scaffold Split)
+📊 Main Results (Scaffold Split)
 
 Model	ROC-AUC
 
@@ -239,115 +112,69 @@ GIN	0.876
 
 ---
 
-📉 Figures (Publication Quality)
+📌 Key Figures
 
-🧬 Figure 1 — Model Architecture
+Architecture → figure_1_architecture.png
 
-figures/figure_1_architecture.png
+ROC Curves → figure_2_roc_curves.png
 
-📊 Figure 2 — ROC Curves
+Data Efficiency → figure_3_data_efficiency.png
 
-figures/figure_2_roc_curves.png
+Ablation Study → figure_4_ablation.png
 
-📈 Figure 3 — Data Efficiency Scaling
+Final Comparison → figure_5_final_comparison.png
 
-figures/figure_3_data_efficiency.png
+Statistical Analysis → figure_6_statistical.png
 
-🔬 Figure 4 — Feature Ablation
+Pipeline → figure_pipeline.png
 
-figures/figure_4_ablation.png
+OOD Performance → figure_ood_comparison.png
 
-🏁 Figure 5 — Final Benchmark Comparison
+Domain Shift → domain_shift.png
 
-figures/figure_5_final_comparison.png
+Error Taxonomy → figure_error_taxonomy.png
 
-📊 Figure 6 — Statistical Robustness
-
-figures/figure_6_statistical.png
 
 
 ---
 
-🌐 Out-of-Distribution Generalization
+🌐 Out-of-Distribution Performance
 
-Setting	ROC-AUC
+Performance drops significantly under cross-dataset evaluation:
 
-In-distribution (scaffold)	0.876
-OOD average	~0.579
+In-distribution (Scaffold): 0.876
 
-
-figures/figure_ood_comparison.png
+Out-of-distribution: ~0.579
 
 
----
-
-🧪 Domain Shift Analysis
-
-We observe systematic shifts between datasets:
-
-Molecular weight ↑
-
-LogP ↑
-
-Ring complexity ↑
-
-Heavy atom count ↑
-
-
-👉 Indicates strong chemical distribution mismatch
-
-figures/domain_shift.png
+This highlights strong domain shift effects in molecular learning.
 
 
 ---
 
-❌ Failure Mode Analysis
+❌ Failure Analysis
 
-Error taxonomy reveals:
+False positives → larger molecular weight compounds
 
-False positives → larger, more complex molecules
-
-False negatives → smaller, less complex structures
+False negatives → smaller / simpler molecules
 
 
-figures/figure_error_taxonomy.png
-
-
----
-
-🔬 Key Contributions
-
-First unified scaffold + OOD nephrotoxicity benchmark
-
-Systematic evaluation of GNN architectures
-
-Domain shift quantification in chemical space
-
-Data efficiency scaling curves
-
-Feature ablation interpretability
-
-Statistical robustness (5-seed CI analysis)
-
-Failure mode taxonomy in molecular graphs
-
+Indicates structural bias in learned representations.
 
 
 ---
 
 📦 Reproducibility
 
-To ensure full reproducibility:
+Fixed random seeds (5 runs)
 
-Fixed random seeds (42, 123, 456, 789, 2024)
+Scaffold-based splitting
 
-Scaffold-based split provided
+Full training pipeline included
 
-Full preprocessing pipeline included
+Deterministic evaluation setup
 
-Deterministic training settings
-
-95% confidence intervals reported
+Confidence intervals reported
 
 
 
@@ -355,31 +182,13 @@ Deterministic training settings
 
 ⚠️ Limitations
 
-Dataset size remains moderate (~3k molecules)
+Dataset size is moderate (~3K molecules)
 
-No 3D conformational modeling
+No 3D molecular conformations
 
-Label noise in public toxicity datasets
+Public dataset label noise
 
-Limited to 2D molecular graphs
-
-No uncertainty-aware calibration in main models
-
-
-
----
-
-🧭 Future Work
-
-3D geometric GNNs (DimeNet++, EGNN)
-
-Multi-task toxicity prediction
-
-Self-supervised molecular pretraining
-
-Uncertainty quantification (Bayesian GNNs)
-
-Foundation model for toxicity prediction
+Limited to 2D graph representations
 
 
 
@@ -399,3 +208,4 @@ Foundation model for toxicity prediction
 🪪 License
 
 MIT License
+

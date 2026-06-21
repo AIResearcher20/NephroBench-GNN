@@ -1,13 +1,19 @@
-# 🧠 NephroBench-GNN
+#<div align="center">
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org)
-[![PyTorch Geometric](https://img.shields.io/badge/PyG-2.3+-green.svg)](https://pyg.org)
-[![RDKit](https://img.shields.io/badge/RDKit-2023.09-yellow.svg)](https://rdkit.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![AUC](https://img.shields.io/badge/AUC-0.876-brightgreen.svg)](https://github.com/AIResearcher20/NephroBench-GNN)
+# 🔬 NephroBench-GNN  
 
-**A Comprehensive Benchmark of Graph Neural Networks for Drug-Induced Nephrotoxicity Prediction**
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-GNN-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![PyG](https://img.shields.io/badge/PyTorch%20Geometric-Graph%20Learning-FF6F00?style=for-the-badge)
+![RDKit](https://img.shields.io/badge/RDKit-Chemoinformatics-2E8B57?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)
+![Task](https://img.shields.io/badge/Task-Nephrotoxicity%20Prediction-blueviolet?style=for-the-badge)
+
+---
+
+### 🧪 A Comprehensive Benchmark of Graph Neural Networks for Drug-Induced Nephrotoxicity Prediction
+
+</div>
 
 ---
 

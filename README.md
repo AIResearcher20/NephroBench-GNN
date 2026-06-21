@@ -5,8 +5,8 @@
 [![PyTorch Geometric](https://img.shields.io/badge/PyG-2.3+-green.svg)](https://pyg.org)
 [![RDKit](https://img.shields.io/badge/RDKit-2023.09-yellow.svg)](https://rdkit.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Paper](https://img.shields.io/badge/Paper-Elsevier-purple.svg)](https://github.com/yourusername/NephroBench-GNN)
-[![AUC](https://img.shields.io/badge/AUC-0.876-brightgreen.svg)](https://github.com/yourusername/NephroBench-GNN)
+[![Paper](https://github.com/AIResearcher20/NephroBench-GNN)
+[![AUC](https://img.shields.io/badge/AUC-0.876-brightgreen.svg)](https://github.com/AIResearcher20/NephroBench-GNN)
 
 **A Comprehensive Benchmark of Graph Neural Networks for Drug-Induced Nephrotoxicity Prediction**
 

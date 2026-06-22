@@ -120,20 +120,37 @@ GIN 0.876 0.840
 
 ---
 
-📈 Figures
+## Figures
 
-Figure Description
-figures/figure_1_architecture.png Figure 1 — GIN model architecture
-figures/figure_2_roc_curves.png Figure 2 — ROC curves comparison
-figures/figure_3_data_efficiency.png Figure 3 — Data efficiency scaling
-figures/figure_4_ablation.png Figure 4 — Feature ablation study
-figures/figure_5_final_comparison.png Figure 5 — Final model comparison
-figures/figure_6_statistical.png Figure 6 — Statistical robustness
-figures/figure_pipeline.png Figure 7 — Overall pipeline
-figures/figure_ood_comparison.png Figure 8 — OOD generalization
-figures/domain_shift.png Figure 9 — Domain shift analysis
-figures/figure_error_taxonomy.png Figure 10 — Failure analysis
+### Figure 1 — GIN Model Architecture
+![Figure 1](figures/figure_1_architecture.png)
 
+### Figure 2 — ROC Curves Comparison
+![Figure 2](figures/figure_2_roc_curves.png)
+
+### Figure 3 — Data Efficiency Scaling
+![Figure 3](figures/figure_3_data_efficiency.png)
+
+### Figure 4 — Feature Ablation Study
+![Figure 4](figures/figure_4_ablation.png)
+
+### Figure 5 — Final Model Comparison
+![Figure 5](figures/figure_5_final_comparison.png)
+
+### Figure 6 — Statistical Robustness
+![Figure 6](figures/figure_6_statistical.png)
+
+### Figure 7 — Overall Pipeline
+![Figure 7](figures/figure_pipeline.png)
+
+### Figure 8 — OOD Generalization
+![Figure 8](figures/figure_ood_comparison.png)
+
+### Figure 9 — Domain Shift Analysis
+![Figure 9](figures/domain_shift.png)
+
+### Figure 10 — Failure Analysis
+![Figure 10](figures/figure_error_taxonomy.png)
 ---
 
 🌐 Out-of-Distribution Performance
